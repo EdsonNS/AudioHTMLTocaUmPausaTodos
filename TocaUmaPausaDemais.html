@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<br>Toca uma musica e pausa as demais<br>
+
+<p>https://www.palcomp3.com.br/radwulf/lose-control/<br>
+<audio onplay="controla(1)" id="myAudio1" controls src="https://65381g.ha.azioncdn.net/c/3/8/d/radwulf-lose-control-3634a7ea.mp3">
+</audio>
+<br>
+ <input type="range" onchange="setVolume(1)" id='volume1' min=0 max=1 step=0.01 value='1.00'>
+</p>
+
+<p>https://www.palcomp3.com.br/gersonrufinoOficial2014/deus-fez/<br>
+<audio onplay="controla(2)" id="myAudio2" controls src="https://65381g.ha.azioncdn.net/8/2/e/f/gersonrufinoOficial2014-deus-fez-4d1fb7.mp3">
+</audio>
+<br>
+ <input type="range" onchange="setVolume(2)" id='volume2' min=0 max=1 step=0.01 value='1.00'>
+</p>
+
+<p>https://ellenwhiteaudio.org/pt/caminho-a-cristo/<br>
+<audio onplay="controla(3)" id="myAudio3" controls src="https://ellenwhiteaudio.org/audio/pt/sc/CC02%20-%20A%20Ponte%20sobre%20o%20Abismo.mp3">
+</audio>
+<br>
+ <input type="range" onchange="setVolume(3)" id='volume3' min=0 max=1 step=0.01 value='1.00'>
+</p>
+
+<p>https://soundful.com/pt-br/<br>
+<audio onplay="controla(4)" id="myAudio4" controls src="https://soundful.com/wp-content/uploads/2023/07/Complex-melodic-deep-house.mp3">
+</audio>
+<br>
+ <input type="range" onchange="setVolume(4)" id='volume4' min=0 max=1 step=0.01 value='1.00'>
+</p>
+
+<p>Click the button to get the URL of the audio.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+var idPlayNow=1;
+function myFunction() {
+  let x = document.getElementById("myAudio"+idPlayNow).src;
+  document.getElementById("demo").innerHTML = x;
+}
+
+function controla(n){
+  idPlayNow=n;
+  if (n!=1) { document.getElementById('myAudio1').pause();}
+  if (n!=2) { document.getElementById('myAudio2').pause();}
+  if (n!=3) { document.getElementById('myAudio3').pause();}
+  if (n!=4) { document.getElementById('myAudio4').pause();}
+  setVolume(n);
+}
+
+function setVolume(n){
+   document.getElementById('myAudio'+n).volume = document.getElementById("volume"+n).value;
+//   document.getElementById('myAudio'+n).play();
+}
+
+
+</script>
+
+</body>
+</html>
